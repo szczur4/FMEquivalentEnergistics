@@ -1,7 +1,4 @@
 package com.mordenkainen.equivalentenergistics.util.inventory;
-
-public interface IInvChangeNotifier {
-
+public interface IInvChangeNotifier{
     void onChangeInventory();
-
 }

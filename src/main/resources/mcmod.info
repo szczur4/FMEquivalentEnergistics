@@ -3,9 +3,9 @@
   "modList": [{
     "modid": "equivalentenergistics",
     "name": "Equivalent Energistics",
-    "description": "EE3 Autocrafting for AE2.",
-    "version": "${version}",
-    "mcversion": "${mcversion}",
+    "description": "EE3 Autocrafting for AE2. (compiled to work with FMPE)",
+    "version": "0.8",
+    "mcversion": "1.7.10-10.13.4.1558-1.7.10",
     "url": "",
     "updateUrl": "",
     "authorList": ["Mordenkainen"],

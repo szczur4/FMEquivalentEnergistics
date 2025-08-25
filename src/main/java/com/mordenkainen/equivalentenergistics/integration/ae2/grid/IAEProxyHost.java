@@ -1,65 +1,46 @@
 package com.mordenkainen.equivalentenergistics.integration.ae2.grid;
-
 import appeng.api.implementations.IPowerChannelState;
-import appeng.api.networking.IGridHost;
-import appeng.api.networking.IGridNode;
+import appeng.api.networking.*;
 import appeng.api.networking.security.IActionHost;
-import appeng.api.util.AECableType;
-import appeng.api.util.DimensionalCoord;
+import appeng.api.util.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
-
-public interface IAEProxyHost extends IGridHost, IActionHost, IPowerChannelState {
-
+public interface IAEProxyHost extends IGridHost, IActionHost, IPowerChannelState{
     @Override
-    default IGridNode getGridNode(final ForgeDirection arg0) {
+    default IGridNode getGridNode(final ForgeDirection arg0){
         return getProxy().getNode();
     }
-    
     @Override
-    default AECableType getCableConnectionType(final ForgeDirection arg0) {
+    default AECableType getCableConnectionType(final ForgeDirection arg0){
         return AECableType.SMART;
     }
-    
     @Override
-    default IGridNode getActionableNode() {
+    default IGridNode getActionableNode(){
         return getProxy().getNode();
     }
-    
-    default void setOwner(final EntityPlayer player) {
+    default void setOwner(final EntityPlayer player){
         getProxy().setOwner(player);
     }
-
-    default void onChunkUnload() {
+    default void onChunkUnload(){
         getProxy().onChunkUnload();
     }
-
-    default void invalidate() {
+    default void invalidate(){
         getProxy().invalidate();
     }
-    
-    default void validate() {
+    default void validate(){
         getProxy().validate();
     }
-    
-    default void onReady() {
+    default void onReady(){
         getProxy().onReady();
     }
-    
-    default void readFromNBT(final NBTTagCompound data) {
+    default void readFromNBT(final NBTTagCompound data){
         getProxy().readFromNBT(data);
     }
-
-    default void writeToNBT(final NBTTagCompound data) {
+    default void writeToNBT(final NBTTagCompound data){
         getProxy().writeToNBT(data);
     }
-    
-    default void gridChanged() {}
-    
+    default void gridChanged(){}
     AEProxy getProxy();
-
     DimensionalCoord getLocation();
-
-    
 }
